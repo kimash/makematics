@@ -8,13 +8,12 @@ FingerTracker fingers;
 SimpleOpenNI kinect;
 // set a default threshold distance:
 // 625 corresponds to about 2-3 feet from the Kinect
-int threshold = 625;
-ArrayList <PVector> allFingers;  //stores all the fingers for comparison
+int threshold = 545;
 
 void setup() {
   size(640, 480);
   
-  allFingers = new ArrayList();
+//  allFingers = new ArrayList();
   
   // initialize your SimpleOpenNI object
   // and set it up to access the depth image
@@ -51,7 +50,11 @@ void draw() {
   // pass that data to our FingerTracker
   int[] depthMap = kinect.depthMap();
   fingers.update(depthMap);
-
+  
+  //PVectors for storing thumb positions
+  PVector leftThumb = new PVector();
+  PVector rightThumb = new PVector();
+  
   // iterate over all the contours found
   // and display each of them with a green line
   stroke(0,255,0);
@@ -65,46 +68,29 @@ void draw() {
   fill(255,0,0);
   for (int i = 0; i < fingers.getNumFingers(); i++) {
     PVector position = fingers.getFinger(i);
-    allFingers.add(position);
-//    text(i, position.x, position.y);
-//    PVector nextPos = fingers.getFinger(i+1);
-    PVector thumb;
-//    if(position.y > nextPos.y)  {
-//       thumb = position; 
-//    }
-//    
-//    else  {
-//      thumb = nextPos;
-//    }
     
-//    ellipse(thumb.x - 5, thumb.y - 5, 10, 10);
-    
-//    if (i > 0) 
-//    {
-//      PVector prevPos = fingers.getFinger(i-1);
-//    
-//      if (dist(nextPos.x, nextPos.y, position.x, position.y) > 2.5*dist(position.x, position.y, prevPos.x, prevPos.y))
-//      {  
-//        ellipse(position.x - 5, position.y -5, 10, 10);
-//      }
-//    }
-    for (PVector p : allFingers)
+    if(position.x > width/2)
     {
-      for (int f = 0; f < allFingers.size(); f++)
-      {
-        PVector other = allFingers.get(f);
-        
-        if (p.y > other.y)  {
-          thumb = p;
-        }
-        else  {
-          thumb = other;
-        }
-        
-        ellipse(thumb.x - 5, thumb.y - 5, 10, 10);
+      if(position.y > rightThumb.y)  {
+        rightThumb.x = position.x;
+        rightThumb.y = position.y; 
       }
-    }
+      
+      else
+      {
+        if(position.y > rightThumb.y)  {
+          leftThumb.x = position.x;
+          leftThumb.y = position.y; 
+        }
+      }
+    }      
   }
+  noStroke();
+  fill(255,0,0);
+  ellipse(rightThumb.x - 5, rightThumb.y - 5, 10, 10);
+  
+  fill(0, 0, 255);
+  ellipse(leftThumb.x - 5, leftThumb.y - 5, 10, 10);
   
   // show the threshold on the screen
   fill(255,0,0);
