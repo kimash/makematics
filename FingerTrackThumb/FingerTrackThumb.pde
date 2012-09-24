@@ -1,3 +1,7 @@
+//Kim Ash
+//Makematics - Fall 2012
+//FingerTrackThumb - tracks left and right thumbs
+
 // import the fingertracker library
 // and the SimpleOpenNI library for Kinect access
 import fingertracker.*;
