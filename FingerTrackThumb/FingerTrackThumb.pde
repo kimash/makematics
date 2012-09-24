@@ -8,7 +8,7 @@ FingerTracker fingers;
 SimpleOpenNI kinect;
 // set a default threshold distance:
 // 625 corresponds to about 2-3 feet from the Kinect
-int threshold = 545;
+int threshold = 605;
 
 void setup() {
   size(640, 480);
@@ -75,13 +75,12 @@ void draw() {
         rightThumb.x = position.x;
         rightThumb.y = position.y; 
       }
-      
-      else
-      {
-        if(position.y > rightThumb.y)  {
-          leftThumb.x = position.x;
-          leftThumb.y = position.y; 
-        }
+    } 
+    else
+    {
+      if(position.y > leftThumb.y)  {
+        leftThumb.x = position.x;
+        leftThumb.y = position.y; 
       }
     }      
   }
