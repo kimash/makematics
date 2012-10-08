@@ -23,15 +23,20 @@ void setup(){
   // each training point will have two entries (x and y)
   trainingPoints = new float[data.getRowCount()][2];
   
-  for(int i=0; i<data.getRowCount(); i++)
-  {
-    //map values in 1st column to (0, 500) range
-    trainingPoints[i][0] = map(trainingPoints[i][0], 1, 6.9, 0, 500);
-    //map values in 2nd column to (0, 500) range
-    trainingPoints[i][1] = map(trainingPoints[i][1], 0.1, 2.5, 0, 500);
-  }
+//  for(int i=0; i<data.getRowCount(); i++)
+//  {
+//    //map values in 1st column to (0, 500) range
+//    trainingPoints[i][0] = map(trainingPoints[i][0], 1, 6.9, 0, 500);
+//    //map values in 2nd column to (0, 500) range
+//    trainingPoints[i][1] = map(trainingPoints[i][1], 0.1, 2.5, 0, 500);
+//    
+//     // we need one label for each training point indicating
+//  // what set the point is in (1, 2, or 3)
+//    labels = new int[data.getRowCount()]; 
+//    labels[i] = (float)trainingPoints[i][2];  //error: cannot convert float to int
+//  }
   
-  // we need one label for each training point incdicating
+  // we need one label for each training point indicating
   // what set the point is in (1, 2, or 3)
   labels = new int[data.getRowCount()];
   
@@ -42,8 +47,8 @@ void setup(){
     float[] p = new float[2];
     // scale the data from 0-1 based on the
     // range of the data
-    p[0] = row.getFloat(0)/500; 
-    p[1] = row.getFloat(1)/500;
+    p[0] = map(row.getFloat(0), 1, 6.9, 0, 500);///500; 
+    p[1] = map(row.getFloat(1), 0.1, 2.5, 0, 500);///500;
     trainingPoints[i] = p;
     labels[i] = row.getInt(2);    
     i++;
