@@ -13,11 +13,16 @@ SimpleOpenNI kinect;
 // set a default threshold distance:
 // 625 corresponds to about 2-3 feet from the Kinect
 int threshold = 605;
+PImage leftTurkey, rightTurkey;
 
 void setup() {
   size(640, 480);
   
-//  allFingers = new ArrayList();
+  leftTurkey = loadImage("leftTurkey.png");
+  rightTurkey = loadImage("rightTurkey.png");
+  
+  leftTurkey.resize(19, 28);
+  rightTurkey.resize(rightTurkey.width/10, leftTurkey.height/10);
   
   // initialize your SimpleOpenNI object
   // and set it up to access the depth image
@@ -78,6 +83,7 @@ void draw() {
       if(position.y > rightThumb.y)  {
         rightThumb.x = position.x;
         rightThumb.y = position.y; 
+//        image(rightTurkey, rightThumb.x - (rightTurkey.width/2), rightThumb.y - (rightTurkey.height/2));
       }
     } 
     else
@@ -89,8 +95,10 @@ void draw() {
     }      
   }
   noStroke();
-  fill(255,0,0);
-  ellipse(rightThumb.x - 5, rightThumb.y - 5, 10, 10);
+//  fill(255,0,0);
+  //ellipse(rightThumb.x - 5, rightThumb.y - 5, 10, 10);
+  tint(255, 255);
+  image(rightTurkey, rightThumb.x - (rightTurkey.width/2), rightThumb.y - (rightTurkey.height/2));
   
   fill(0, 0, 255);
   ellipse(leftThumb.x - 5, leftThumb.y - 5, 10, 10);
