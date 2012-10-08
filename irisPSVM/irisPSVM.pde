@@ -1,3 +1,7 @@
+//Kim Ash
+//Makematics - Fall 2012
+//irisPSVM - uses SVM to classify iris varieties based on petal length and width data
+//data source: http://archive.ics.uci.edu/ml/datasets/Iris
 import psvm.*;
 
 SVM model;
@@ -23,19 +27,6 @@ void setup(){
   // each training point will have two entries (x and y)
   trainingPoints = new float[data.getRowCount()][2];
   
-//  for(int i=0; i<data.getRowCount(); i++)
-//  {
-//    //map values in 1st column to (0, 500) range
-//    trainingPoints[i][0] = map(trainingPoints[i][0], 1, 6.9, 0, 500);
-//    //map values in 2nd column to (0, 500) range
-//    trainingPoints[i][1] = map(trainingPoints[i][1], 0.1, 2.5, 0, 500);
-//    
-//     // we need one label for each training point indicating
-//  // what set the point is in (1, 2, or 3)
-//    labels = new int[data.getRowCount()]; 
-//    labels[i] = (float)trainingPoints[i][2];  //error: cannot convert float to int
-//  }
-  
   // we need one label for each training point indicating
   // what set the point is in (1, 2, or 3)
   labels = new int[data.getRowCount()];
@@ -47,8 +38,8 @@ void setup(){
     float[] p = new float[2];
     // scale the data from 0-1 based on the
     // range of the data
-    p[0] = map(row.getFloat(0), 1, 6.9, 0, 500);///500; 
-    p[1] = map(row.getFloat(1), 0.1, 2.5, 0, 500);///500;
+    p[0] = map(row.getFloat(0), 1, 6.9, 0, 1);  //map petal length data
+    p[1] = map(row.getFloat(1), 0.1, 2.5, 0, 1);  //map petal width data
     trainingPoints[i] = p;
     labels[i] = row.getInt(2);    
     i++;
@@ -88,13 +79,13 @@ void drawModel(){
       // pass it to the model for testing
       double d = model.test(testPoint);
       
-      // based on the result, draw a red, green, or blue dot
+      // based on the result, draw a yellow, purple, or green dot (iris colors)
       if((int)d == 1){
-        modelDisplay.stroke(255,0,0);
+        modelDisplay.stroke(232, 183, 14);  //iris yellow
       } else if ((int)d == 2){
-        modelDisplay.stroke(0, 255 ,0);
+        modelDisplay.stroke(112, 58, 200);  //iris purple
       } else if ((int)d == 3){
-        modelDisplay.stroke(0, 0, 255);
+        modelDisplay.stroke(58, 131, 37);  //iris green
       }
       
       // which will fill up the entire area of the sketch
@@ -120,11 +111,11 @@ void draw(){
   // in the right color based on their labels
   for(int i = 0; i < trainingPoints.length; i++){
     if(labels[i] == 1){
-      fill(255,0,0);
+      fill(232, 183, 14);
     } else if(labels[i] == 2){
-      fill(0,255,0);
+      fill(112, 58, 200);
     } else if(labels[i] == 3){
-      fill(0,0,255);
+      fill(58, 131, 37);
     }
     
     ellipse(trainingPoints[i][0] * 500, trainingPoints[i][1]* 500, 5, 5);
