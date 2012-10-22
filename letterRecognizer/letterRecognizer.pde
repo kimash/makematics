@@ -1,10 +1,9 @@
 /*Kim Ash
 Makematics Fall 2012
-letterRecognizer - Trains an SVM-based classifier to detect letters (A, B, C) based on Histogram
-of Oriented Gradients of letter images.
+letterRecognizer - Uses a trained Support Vector Machine to letter characters in live video.
 
 derived from:
-HandletterRecognizer by Greg Borenstein, October 2012
+HandletterRecognizerInteractive by Greg Borenstein, October 2012
 Distributed as part of PSVM: http://makematics.com/code/psvm
 Depends on HoG Processing: http://hogprocessing.altervista.org/
 */
@@ -123,18 +122,6 @@ void draw() {
     fill(125, 125, 255);
     result = result + "C";
     break;
-  /*case 4:
-    fill(125, 255, 255);
-    result = result + "V";
-    break;
-  case 5:
-    fill(255, 255, 125);
-    result = result + "Five";
-    break;
-  case 6:
-    fill(255);
-    result = result + "Point";
-    break;*/
   }
 
 
