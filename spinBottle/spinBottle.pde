@@ -2,6 +2,10 @@
 //Makematics - Fall 2012
 //spinBottle - uses PCA to show orientation of a spinning bottle
 
+import Jama.Matrix;
+import pca_transform.*;
+import hypermedia.video.*;
+
 PImage wood;
 Bottle bottle;
 
