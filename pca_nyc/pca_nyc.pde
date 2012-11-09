@@ -1,3 +1,7 @@
+//Kim Ash
+//Makematics - Fall 2012
+//pca_nyc - takes map of NYC blackout and analyzes orientation of unlit area
+
 import Jama.Matrix;
 import pca_transform.*;
 import hypermedia.video.*;
