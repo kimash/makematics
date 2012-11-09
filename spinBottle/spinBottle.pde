@@ -1,20 +1,22 @@
 //Kim Ash
 //Makematics - Fall 2012
-//spinBottle - uses PCA to show orientation of a bottle after spinning
+//spinBottle - uses PCA to show orientation of a spinning bottle
 
 PImage wood;
-PImage bottle;
+Bottle bottle;
 
 void setup()
 {
   size(800, 800);
   wood = loadImage("wood.jpg");
-  bottle = loadImage("beerSmall.png");
+  bottle = new Bottle(width/2, height/2);
   background(wood);
 }
 
 void draw()
 {
-  imageMode(CENTER);
-  image(bottle, width/2, height/2);
+  bottle.display();
+  bottle.spin();
 }
+
+
