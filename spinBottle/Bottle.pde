@@ -11,22 +11,23 @@ class Bottle
   
   void display()
   {
-    imageMode(CENTER);
     bottle = loadImage("beerSmall.png");
-    pushMatrix();
-      image(bottle, pos.x, pos.y);
-      rotate(angle);
-    popMatrix();
-    angle += 0.01;
+    //pushMatrix();
+    imageMode(CENTER);
+    image(bottle, -pos.x/16, -pos.y/16);
+    //popMatrix();
   }
   
   void spin()
   {
-    if(keyPressed)  {
-      if(key == 's' || key == 'S')  {
-        angle += TWO_PI + random(TWO_PI);
-        //rotate(angle);
-      }
-    }
+    angle += .03;
+    translate(width/2, height/2);
+    rotate(angle);
+//    if(keyPressed)  {
+//      if(key == 's' || key == 'S')  {
+//        angle += TWO_PI + random(TWO_PI);
+//        rotate(angle);
+//      }
+//    }
   } 
 }

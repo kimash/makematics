@@ -10,13 +10,13 @@ void setup()
   size(800, 800);
   wood = loadImage("wood.jpg");
   bottle = new Bottle(width/2, height/2);
-  background(wood);
 }
 
 void draw()
 {
-  bottle.display();
+  background(wood);
   bottle.spin();
+  bottle.display();
 }
 
 
