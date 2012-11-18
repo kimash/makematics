@@ -45,5 +45,8 @@ void draw()
   rect(400, 0, 400, 800);
   fill(#8DFF55);
   rect(800, 0, 400, 800);
+  
+  fill(50);
+  text(scar, 10, 0);
 }
 
