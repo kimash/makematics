@@ -1,37 +1,38 @@
+/*
+  Kim Ash
+  Makematics - Fall 2012
+  folkSongDP - uses dynamic programming to find LCS of 2 folk songs:
+  "Scarborough Fair" and Bob Dylan's "Girl from the North Country"
+*/
+
 import dynamicprogramming.*;
 
-//String text1 = "Are you going to scartextborough Fair\n Parsley, sage, rosemary and thyme\n Remember me to one who lives there\n She onorthe was a true love of mine ";
-//String text2 = "Well if you’re travelin’ in the northtext country fair\n Where the winds hit heavy on the borderline\n Remember me to one who lives there\n She onorthe was a true love of mine ";
+String scartext[];  //text of "Scarborough Fair"
+String northtext[];  //text of "Girl from the North Country"
+String scar;  //composite string of SF lyrics
+String north;  //composite string of GNC lyrics
 
-String scartext[];
-String northtext[];
-String scar;
-String north;
-
-//LongestCommonSubsequence lcs;
 LongestCommonSubsequence folkLCS;
 
 void setup() {
   size(1040, 900);
+  background(255);
   scartext = loadStrings("scarboroughFair.txt");
   northtext = loadStrings("northCountry.txt");
-  //text1 = text1.toUpperCase();
-  //text2 = text2.toUpperCase();
-  //lcs = new LongestCommonSubsequence(text1, text2);
-  //println(lcs.getLongestCommonSubsequence());
   
+  //create composite string of SF lyrics
   for(int i=0; i<scartext.length; i++)  {
     scartext[i] = scartext[i].toUpperCase();
     scar = join(scartext, "\n");
-    //println(scar);
   }
   
+  //create composite string of GNC lyrics
   for(int i=0; i<northtext.length; i++)  { 
     northtext[i] = northtext[i].toUpperCase();
     north = join(northtext, "\n");
-    //println(north);
   }
   
+  //find longest common subsequence
   folkLCS = new LongestCommonSubsequence(scar, north);
   println(folkLCS.getLongestCommonSubsequence());
 }
@@ -39,19 +40,17 @@ void setup() {
 void draw() 
 {
   noStroke();
-  fill(#55D3FF);
-  rect(0, 0, 400, 900);
-  fill(#FFFA55);
-  rect(600, 0, 450, 900);
+  fill(#55D3FF, 150);
+  rect(0, 0, 540, 900);
+  fill(#FFFA55, 150);
+  rect(440, 0, 600, 900);
   fill(#8DFF55);
   rect(0, 600, 1040, 300);
-  rect(400, 0, 200, 900);
   
   fill(0);
   textSize(15);
   text(scar, 20, 20);
   text(north, 620, 20);
-  //textSize(12);
   text(folkLCS.getLongestCommonSubsequence(), 20, 640);
 }
 
