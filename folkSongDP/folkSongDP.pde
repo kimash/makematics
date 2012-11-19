@@ -12,7 +12,7 @@ String north;
 LongestCommonSubsequence folkLCS;
 
 void setup() {
-  size(1200, 800);
+  size(1040, 900);
   scartext = loadStrings("scarboroughFair.txt");
   northtext = loadStrings("northCountry.txt");
   //text1 = text1.toUpperCase();
@@ -40,15 +40,18 @@ void draw()
 {
   noStroke();
   fill(#55D3FF);
-  rect(0, 0, 400, 800);
+  rect(0, 0, 400, 900);
   fill(#FFFA55);
-  rect(400, 0, 400, 800);
+  rect(600, 0, 450, 900);
   fill(#8DFF55);
-  rect(800, 0, 400, 800);
+  rect(0, 600, 1040, 300);
+  rect(400, 0, 200, 900);
   
   fill(0);
   textSize(15);
-  text(scar, 10, 0);
-  text(north, 410, 0);
+  text(scar, 20, 20);
+  text(north, 620, 20);
+  //textSize(12);
+  text(folkLCS.getLongestCommonSubsequence(), 20, 640);
 }
 
