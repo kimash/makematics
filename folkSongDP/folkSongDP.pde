@@ -41,16 +41,16 @@ void draw()
 {
   noStroke();
   fill(#55D3FF, 150);
-  rect(0, 0, 540, 900);
+  rect(0, 0, 560, 900);
   fill(#FFFA55, 150);
-  rect(440, 0, 600, 900);
+  rect(480, 0, 600, 900);
   fill(#8DFF55);
-  rect(0, 600, 1040, 300);
+  rect(0, 610, 1040, 300);
   
   fill(0);
   textSize(15);
-  text(scar, 20, 20);
-  text(north, 620, 20);
+  text(scar, 40, 30);
+  text(north, 600, 30);
   text(folkLCS.getLongestCommonSubsequence(), 20, 640);
 }
 
