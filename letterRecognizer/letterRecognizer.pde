@@ -15,7 +15,7 @@ import psvm.*;
 PImage img;
 
 SVM model;
-int[] labels; // 1 = A, 2 = B, 3 = C
+int[] labels; // 1 = A, 2 = B, 3 = C, etc.
 String[] trainingFilenames, testFilenames;
 float[][] trainingFeatures;
 
@@ -53,16 +53,28 @@ void setup() {
       labels[i] = 3;
     }
 
-    if (letterLabel.equals("V")) {
+    if (letterLabel.equals("D")) {
       labels[i] = 4;
     }
 
-    if (letterLabel.equals("Five")) {
+    if (letterLabel.equals("E")) {
       labels[i] = 5;
     }
 
-    if (letterLabel.equals("Point")) {
+    if (letterLabel.equals("F")) {
       labels[i] = 6;
+    }
+    
+    if (letterLabel.equals("G")) {
+      labels[i] = 7;
+    }
+    
+    if (letterLabel.equals("H")) {
+      labels[i] = 8;
+    }
+    
+    if (letterLabel.equals("I")) {
+      labels[i] = 9;
     }
 
     // calculate the Histogram of Oriented Gradients for this image
@@ -121,6 +133,30 @@ void draw() {
   case 3:
     fill(125, 125, 255);
     result = result + "C";
+    break;
+  case 4:
+    fill(255, 125, 125);
+    result = result + "D";
+    break;
+  case 5:
+    fill(125, 255, 125);
+    result = result + "E";
+    break;
+  case 6:
+    fill(125, 125, 255);
+    result = result + "F";
+    break;
+  case 7:
+    fill(255, 125, 125);
+    result = result + "G";
+    break;
+  case 8:
+    fill(125, 255, 125);
+    result = result + "H";
+    break;
+  case 9:
+    fill(125, 125, 255);
+    result = result + "I";
     break;
   }
 
