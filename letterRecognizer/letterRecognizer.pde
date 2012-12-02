@@ -92,6 +92,18 @@ void setup() {
     if (letterLabel.equals("M")) {
       labels[i] = 13;
     }
+    
+    if (letterLabel.equals("N")) {
+      labels[i] = 14;
+    }
+    
+    if (letterLabel.equals("O")) {
+      labels[i] = 15;
+    }
+    
+    if (letterLabel.equals("P")) {
+      labels[i] = 16;
+    }
 
     // calculate the Histogram of Oriented Gradients for this image
     // use its results as a training vector in our SVM
@@ -189,6 +201,18 @@ void draw() {
   case 13:
     fill(255, 125, 125);
     result = result + "M";
+    break;
+  case 14:
+    fill(125, 255, 125);
+    result = result + "N";
+    break;
+  case 15:
+    fill(125, 125, 255);
+    result = result + "O";
+    break;
+  case 16:
+    fill(255, 125, 125);
+    result = result + "P";
     break;
   }
 
