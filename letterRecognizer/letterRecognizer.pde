@@ -38,6 +38,11 @@ void setup() {
   // the training images' filenames
   for (int i = 0; i < trainingFilenames.length; i++) {
     println(trainingFilenames[i]);
+    //ignore .DS_Store files
+    if(trainingFilenames[i].equals(".DS_Store")){
+      continue;
+    }
+
     // split the filename by "-" and look at the first part
     // to decide the label
     String letterLabel = split(trainingFilenames[i], '-')[0];
