@@ -85,6 +85,98 @@ void draw() {
     fill(125, 125, 255);
     result = result + "C";
     break;
+  case 4:
+    fill(255, 125, 125);
+    result = result + "D";
+    break;
+  case 5:
+    fill(125, 255, 125);
+    result = result + "E";
+    break;
+  case 6:
+    fill(125, 125, 255);
+    result = result + "F";
+    break;
+  case 7:
+    fill(255, 125, 125);
+    result = result + "G";
+    break;
+  case 8:
+    fill(125, 255, 125);
+    result = result + "H";
+    break;
+  case 9:
+    fill(125, 125, 255);
+    result = result + "I";
+    break;
+  case 10:
+    fill(255, 125, 125);
+    result = result + "J";
+    break;
+  case 11:
+    fill(125, 255, 125);
+    result = result + "K";
+    break;
+  case 12:
+    fill(125, 125, 255);
+    result = result + "L";
+    break;
+  case 13:
+    fill(255, 125, 125);
+    result = result + "M";
+    break;
+  case 14:
+    fill(125, 255, 125);
+    result = result + "N";
+    break;
+  case 15:
+    fill(125, 125, 255);
+    result = result + "O";
+    break;
+  case 16:
+    fill(255, 125, 125);
+    result = result + "P";
+    break;
+  case 17:
+    fill(125, 255, 125);
+    result = result + "Q";
+    break;
+  case 18:
+    fill(125, 125, 255);
+    result = result + "R";
+    break;  
+  case 19:
+    fill(255, 125, 125);
+    result = result + "S";
+    break;
+  case 20:
+    fill(125, 255, 125);
+    result = result + "T";
+    break;
+  case 21:
+    fill(125, 125, 255);
+    result = result + "U";
+    break; 
+  case 22:
+    fill(255, 125, 125);
+    result = result + "V";
+    break;
+  case 23:
+    fill(125, 255, 125);
+    result = result + "W";
+    break;
+  case 24:
+    fill(125, 125, 255);
+    result = result + "X";
+    break;
+  case 25:
+    fill(255, 125, 125);
+    result = result + "Y";
+    break;
+  case 26:
+    fill(125, 255, 125);
+    result = result + "Z";
+    break;     
   }
   text(result, 100, 20);
 }
