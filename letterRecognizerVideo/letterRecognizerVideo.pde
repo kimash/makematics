@@ -71,7 +71,7 @@ void draw() {
   // use the result of our SVM test
   // to decide what text to put on the screen
   // based on what letter is showing
-  String result = "Letter is: ";
+  String result = "Letter: ";
   switch((int)testResult) {
   case 1:
     fill(255, 125, 125);
@@ -178,7 +178,8 @@ void draw() {
     result = result + "Z";
     break;     
   }
-  text(result, 100, 20);
+  textSize(20);
+  text(result, 120, 30);
 }
 
 // Helper function that calculates the 
